@@ -6,48 +6,87 @@
 
 import React, { Component } from 'react';
 import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
+ AppRegistry,
+ StyleSheet,
+ Text,
+ View,
+ Image,
+ Button
 } from 'react-native';
 
-export default class lvquan extends Component {
-  render() {
+import { TabNavigator } from 'react-navigation';
+
+import Discover from './app/pages/discover.pages';
+
+class MyHomeScreen extends React.Component {
+  static navigationOptions = {
+    tabBar: {
+      label: '消息',
+     // Note: By default the icon is only shown on iOS. Search the showIcon option below.
+     // icon: ({ tintColor }) => (
+     //   <Image
+     //     source={require('./1.png')}
+     //     style={[styles.icon, {tintColor: tintColor}]}
+     //   />
+     // ),
+    },
+  }
+
+ render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
+      <Button
+        onPress={() => this.props.navigation.navigate('Notifications')}
+        title="Go to notifications"
+        />
+    );
+  }
+}
+
+class NotificationsScreen extends React.Component {
+ static navigationOptions = {
+    tabBar: {
+      label: '我',
+     // icon: ({ tintColor }) => (
+     //   <Image
+     //     source={require('./1.png')}
+     //     style={[styles.icon, {tintColor: tintColor}]}
+     //   />
+     // ),
+    },
+  }
+
+ render() {
+    return (
+      <Button
+        onPress={() => this.props.navigation.goBack()}
+       title="Go back home"
+      />
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+  icon: {
+    width: 26,
+    height: 26,
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+});
+
+const lvquan = TabNavigator({
+  Discover: {
+    screen: Discover
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  Home: {
+    screen: MyHomeScreen,
   },
+  Notifications: {
+    screen: NotificationsScreen,
+  },
+}, {
+    tabBarOptions: {
+      activeTintColor: '#e91e63',
+    },
+    tabBarPosition: 'bottom'
 });
 
 AppRegistry.registerComponent('lvquan', () => lvquan);
