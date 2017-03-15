@@ -36,7 +36,7 @@ export default class Discover extends React.Component {
 
   render() {
     return (
-      <View>
+      <View style={{flex: 1}}>
         <ScrollableTabView
           tabBarUnderlineColor='#e7e7e7'
           tabBarInactiveTextColor='#888'
