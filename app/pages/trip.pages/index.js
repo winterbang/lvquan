@@ -6,7 +6,8 @@ import {
   Image
 } from 'react-native';
 
-import { Container, Header, Body, Content, Segment, Left, Right, Button, Icon } from 'native-base';
+import { Container, Header, Body, Content, Segment, Left, Right, Button, Title } from 'native-base';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { TabNavigator } from 'react-navigation';
 
@@ -15,9 +16,12 @@ import Config from 'react-native-config';
 export default class Trip extends React.Component {
 
   static navigationOptions = {
-    title: '旅程',
+    // title: '旅程',
+    // header: {
+    //   right: <Icon name="new-message" />,
+    // },
     header: {
-      right: <Button title="发布" />,
+      visible: false,
     },
     tabBar: {
       label: '旅程',
@@ -34,6 +38,18 @@ export default class Trip extends React.Component {
   render() {
     return (
       <Container>
+        <Header>
+          <Left>
+          </Left>
+          <Body>
+            <Title>旅程</Title>
+          </Body>
+          <Right>
+            <Button transparent>
+              <Icon name='pencil' size={20}/>
+            </Button>
+          </Right>
+        </Header>
         <Content padder>
           <Text>Awesome segment</Text>
         </Content>
