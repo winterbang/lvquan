@@ -15,9 +15,8 @@ import Config from 'react-native-config'
 export default class Me extends React.Component {
 
   static navigationOptions = {
-    title: 'Welcome',
     header: {
-      right: <Button title="Info" />,
+      visible: false,
     },
     tabBar: {
       label: '我',

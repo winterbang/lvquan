@@ -1,23 +1,22 @@
 import React, { Component } from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   View,
-  Image,
-  Button
+  Image
 } from 'react-native';
+
+import { Container, Header, Body, Content, Segment, Left, Right, Button, Icon } from 'native-base';
 
 import { TabNavigator } from 'react-navigation';
 
-import Config from 'react-native-config'
+import Config from 'react-native-config';
 
 export default class Information extends React.Component {
 
   static navigationOptions = {
-    title: 'Welcome',
     header: {
-      right: <Button title="Info" />,
+      visible: false,
     },
     tabBar: {
       label: '消息',
@@ -33,10 +32,29 @@ export default class Information extends React.Component {
 
   render() {
     return (
-      <Button
-        onPress={() => this.props.navigation.navigate('Notifications')}
-        title="Go to notifications"
-      />
+      <Container>
+        <Header>
+          <Left>
+            <Button transparent>
+              <Icon name="arrow-back" />
+            </Button>
+          </Left>
+          <Body>
+            <Segment>
+              <Button first><Text>通知</Text></Button>
+              <Button last active><Text>私信</Text></Button>
+            </Segment>
+          </Body>
+          <Right>
+            <Button transparent>
+              <Icon name="search" />
+            </Button>
+          </Right>
+        </Header>
+        <Content padder>
+          <Text>Awesome segment</Text>
+        </Content>
+      </Container>
     );
   }
 }
@@ -44,6 +62,6 @@ export default class Information extends React.Component {
 const styles = StyleSheet.create({
   icon: {
     width: 24,
-    height: 24,
-  },
+    height: 24
+  }
 });

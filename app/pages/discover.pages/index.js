@@ -18,9 +18,12 @@ import Friends from './friends.js'
 export default class Discover extends React.Component {
 
   static navigationOptions = {
-    title: '发现',
+    // title: '发现',
+    // header: {
+    //   right: <Button title="Info" />,
+    // },
     header: {
-      right: <Button title="Info" />,
+      visible: false,
     },
     tabBar: {
       label: '发现',
@@ -45,8 +48,8 @@ export default class Discover extends React.Component {
           ref="scrollableTabView"
           initialPage={0}
         >
-          <Choiceness tabLabel="精选" />
-          <Friends tabLabel="好友" />
+          <Choiceness {...this.props} tabLabel="精选" />
+          <Friends {...this.props} tabLabel="好友" />
         </ScrollableTabView>
       </View>
     );
