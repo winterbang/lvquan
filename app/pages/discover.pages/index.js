@@ -3,7 +3,7 @@ import {
   StyleSheet,
   Text,
   View,
-  Image,
+  Image
 } from 'react-native';
 
 import { TabNavigator } from 'react-navigation';
@@ -66,15 +66,14 @@ export default class Discover extends React.Component {
           </Right>
         </Header>
         <Content>
-        <Tabs>
-              <Tab heading="精选">
-                  <Choiceness {...this.props} tabLabel="精选" />
-              </Tab>
-              <Tab heading="好友">
-                  <Friends {...this.props} tabLabel="好友" />
-              </Tab>
+          <Tabs>
+            <Tab heading="精选">
+              <Choiceness {...this.props} tabLabel="精选" />
+            </Tab>
+            <Tab heading="好友">
+              <Friends {...this.props} tabLabel="好友" />
+            </Tab>
           </Tabs>
-
         </Content>
       </Container>
 
