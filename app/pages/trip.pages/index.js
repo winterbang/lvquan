@@ -9,8 +9,6 @@ import {
 import { Container, Header, Body, Content, Segment, Left, Right, Button, Title } from 'native-base';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import { TabNavigator } from 'react-navigation';
-
 import Config from 'react-native-config';
 
 export default class Trip extends React.Component {
@@ -25,7 +23,6 @@ export default class Trip extends React.Component {
     },
     tabBar: {
       label: '旅程',
-      // Note: By default the icon is only shown on iOS. Search the showIcon option below.
       icon: ({ tintColor }) => (
         <Image
           source={require('../../source/email.png')}
@@ -39,8 +36,7 @@ export default class Trip extends React.Component {
     return (
       <Container>
         <Header>
-          <Left>
-          </Left>
+          <Left></Left>
           <Body>
             <Title>旅程</Title>
           </Body>

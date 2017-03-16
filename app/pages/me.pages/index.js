@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import {
-  AppRegistry,
   StyleSheet,
-  Text,
   View,
   Image,
   Button
 } from 'react-native';
 
-import { TabNavigator } from 'react-navigation';
+import { Container, Content, ListItem, Left, Body, Right, Switch, Radio, Text, Icon, Badge } from 'native-base';
 
-import Config from 'react-native-config'
+import Config from 'react-native-config';
 
 export default class Me extends React.Component {
 
@@ -20,7 +18,6 @@ export default class Me extends React.Component {
     },
     tabBar: {
       label: '我',
-      // Note: By default the icon is only shown on iOS. Search the showIcon option below.
       icon: ({ tintColor }) => (
         <Image
           source={require('../../source/user.png')}
@@ -32,10 +29,45 @@ export default class Me extends React.Component {
 
   render() {
     return (
-      <Button
-        onPress={() => this.props.navigation.navigate('Notifications')}
-        title="Go to notifications"
-      />
+      <Container>
+        <Content>
+          <ListItem icon>
+            <Left>
+                <Icon name="plane" />
+            </Left>
+            <Body>
+              <Text>Airplane Mode</Text>
+            </Body>
+            <Right>
+                <Switch valur={false} />
+            </Right>
+          </ListItem>
+          <ListItem icon>
+              <Left>
+                  <Icon name="wifi" />
+              </Left>
+              <Body>
+                <Text>Wi-Fi</Text>
+              </Body>
+              <Right>
+                  <Text>GeekyAnts</Text>
+                  <Icon name="arrow-forward" />
+              </Right>
+          </ListItem>
+          <ListItem icon>
+              <Left>
+                  <Icon name="bluetooth" />
+              </Left>
+              <Body>
+                <Text>Bluetooth</Text>
+              </Body>
+              <Right>
+                  <Text>On</Text>
+                  <Icon name="arrow-forward" />
+              </Right>
+          </ListItem>
+        </Content>
+      </Container>
     );
   }
 }
